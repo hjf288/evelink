@@ -1,4 +1,3 @@
-
 LABEL_MAP = {
     'allianceContactList': 'alliance',
     'corporateContactList': 'corp',
@@ -17,6 +16,7 @@ def parse_contact_list(api_result):
             contact_id = int(row.get('contactID'))
             contact_list[contact_id] = {
                 'id': contact_id,
+                'typeid': int(row.get('contactTypeID')),
                 'name': row.get('contactName'),
                 'standing': float(row.get('standing')),
                 'in_watchlist': in_watchlist
